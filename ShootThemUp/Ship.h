@@ -1,8 +1,13 @@
 #pragma once
 class Ship
 {
-	Ship();
-	~Ship();
-	void initShip();
+	public:
+		Ship();
+		~Ship();
+		void init();
+		void unInit();
+		void update();
+		void draw();
+	protected:
 };
 

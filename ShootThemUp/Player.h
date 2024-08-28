@@ -1,11 +1,20 @@
 #pragma once
-class Player
+#include "Ship.h"
+#include "Vec2.h"
+#include "Controller.h"
+
+class Player : public Ship
 {
 	public:
 		Player();
 		~Player();
-		void initPlayer();
+		void init();
+		void unInit();
+		void update();
+		void draw();
 	protected:
+		Controller m_controller;
+
 
 };
 

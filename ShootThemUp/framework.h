@@ -8,3 +8,4 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+#define BYTE unsigned __int8
