@@ -12,26 +12,29 @@ Game::~Game()
 
 void Game::initGame()
 {
-    Vec2 pos;
-    Vec2 dim;
-    dim.initVec2(800, 600);
-    pos.initVec2(dim.V_x / 2, dim.V_y / 2);
-    m_window.initWindow("ShootThemUp", pos, dim);
-    shape.setRadius(100.f);
-    shape.setPosition((m_window.getDim().V_x / 2) - 100.f, (m_window.getDim().V_y / 2) - 100.f);
-    shape.setFillColor(sf::Color::Red);
+    Vec2 posWindow;
+    Vec2 playerPos;
+    Vec2 dimWindow;
+    Vec2 playerDim;
+    dimWindow.initVec2(800, 600);
+    playerDim.initVec2(250, 50);
+    posWindow.initVec2(dimWindow.V_x / 2, dimWindow.V_y / 2);
+    playerPos.initVec2((dimWindow.V_x / 2)-playerDim.V_x/2, dimWindow.V_y-playerDim.V_y);
+    m_window.initWindow("ShootThemUp", posWindow, dimWindow);
+    m_level.initLevel(dimWindow);
 }
 
 void Game::update()
 {
-    timer.updateTime();
-    c.updateController();
+    m_level.update();
+    m_timer.updateTime();
+    m_controller.updateController();
 }
 
 void Game::draw()
 {
     m_window.getWindow()->clear();
-    m_window.getWindow()->draw(shape);
+    m_level.draw();
     m_window.getWindow()->display();
 }
 
@@ -44,11 +47,19 @@ void Game::run()
         sf::Event event;
         while (m_window.getWindow()->pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
+            switch(event.type)
             {
-                m_window.getWindow()->close();
-                quit = true;
-                break;
+                case sf::Event::Closed:
+                    m_window.getWindow()->close();
+                    quit = true;
+                    break;
+                case sf::Event::KeyPressed:
+                    if (event.key.scancode == sf::Keyboard::Scan::Escape)
+                    {
+                        m_window.getWindow()->close();
+                        quit = true;
+                    }
+                    break;
             }
         }
         if (quit)
@@ -58,10 +69,47 @@ void Game::run()
         update();
         draw();
     }
-    unInit();
+    unInitGame();
 }
 
 void Game::unInitGame()
 {
     m_window.unInit();
 }
+
+Game* Game::GetGame()
+{
+    static Game g;
+    return &g;
+}
+
+bool Game::isKey(int key)
+{
+    Game *g = Game::GetGame();
+    return g->m_controller.isKey(key);
+}
+
+bool Game::isKeyDown(int key)
+{
+    Game* g = Game::GetGame();
+    return g->m_controller.isKeyDown(key);
+}
+
+bool Game::isKeyNone(int key)
+{
+    Game* g = Game::GetGame();
+    return g->m_controller.isKeyNone(key);
+}
+
+sf::RenderWindow* Game::getWindow()
+{
+    Game* g = Game::GetGame();
+    return g->m_window.getWindow();
+}
+
+float Game::getElapsedTime()
+{
+    Game* g = Game::GetGame();
+    return g->m_timer.getElapsedTime();
+}
+

@@ -25,7 +25,6 @@ bool Timer::updateTime()
 	m_currentTime = time;
 	m_elapsedTime = elapsedTime / 1000.0f;
 	m_totalTime += m_elapsedTime;
-	Sleep(1);
 	return true;
 }
 

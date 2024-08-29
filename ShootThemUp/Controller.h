@@ -17,6 +17,7 @@ class Controller
 		void updateController();
 		bool isKey(int key);
 		bool isKeyDown(int key);
+		bool isKeyNone(int key);
 	protected:
 		BYTE m_keyStateTab[256];
 };

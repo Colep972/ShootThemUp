@@ -63,3 +63,8 @@ bool Controller::isKeyDown(int key)
 {
 	return m_keyStateTab[key] == Keystate::DOWN;
 }
+
+bool Controller::isKeyNone(int key)
+{
+	return m_keyStateTab[key] == Keystate::DOWN || m_keyStateTab[key] == Keystate::PUSHED;
+}

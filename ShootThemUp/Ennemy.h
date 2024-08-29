@@ -1,10 +1,12 @@
 #pragma once
-class Ennemy
+#include "Vec2.h"
+#include "Ship.h"
+class Ennemy : public Ship
 {
 	public:
 		Ennemy();
-		~Ennemy();
-		void initEnnemy();
+		virtual ~Ennemy();
+		void initEnnemy(Vec2 pos, Vec2 dim, float speed, float acceleration, float minDim, float maxDim);
 	protected:
 
 };

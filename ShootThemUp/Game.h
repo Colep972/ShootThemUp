@@ -2,6 +2,7 @@
 #include "Window.h"
 #include "Timer.h"
 #include "Controller.h"
+#include "Level.h"
 
 class Game
 {
@@ -13,11 +14,17 @@ class Game
 		void draw();
 		void run();
 		void unInitGame();
+		static Game* GetGame();
+		static bool isKey(int key);
+		static bool isKeyDown(int key);
+		static float getElapsedTime();
+		static bool isKeyNone(int key);
+		static sf::RenderWindow* getWindow();
 	protected:
 		Window m_window;
-		sf::CircleShape shape;
-		Timer timer;
-		Controller c;
+		Timer m_timer;
+		Controller m_controller;
+		Level m_level;
 
 };
 
