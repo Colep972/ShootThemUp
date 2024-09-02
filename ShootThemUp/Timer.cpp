@@ -33,7 +33,7 @@ float Timer::getElapsedTime()
 	return m_elapsedTime;
 }
 
-float Timer::getTotaltime()
+float Timer::getTotalTime()
 {
 	return m_totalTime;
 }

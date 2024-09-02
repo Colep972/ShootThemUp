@@ -7,7 +7,7 @@ class Timer
 		void initTimer();
 		bool updateTime();
 		float getElapsedTime();
-		float getTotaltime();
+		float getTotalTime();
 	protected:
 		float m_elapsedTime;
 		float m_currentTime;

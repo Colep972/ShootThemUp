@@ -14,6 +14,7 @@ class Level
 	protected:
 		std::list<GameObject*> m_tabGameObject;
 		std::list<GameObject*>::iterator it;
+		float m_latestTime;
 
 };
 

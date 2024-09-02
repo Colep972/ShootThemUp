@@ -10,7 +10,7 @@ class Player : public Ship
 		virtual ~Player();
 		void init(Vec2 pos, Vec2 dim, float speed, float acceleration, float minDim,float maxDim);
 		void unInit();
-		void update();
+		void update(GameObject* otherGameObject);
 		void draw();
 		void moveX(int dir);
 		void moveY(int dir);

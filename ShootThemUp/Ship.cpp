@@ -4,7 +4,8 @@
 
 Ship::Ship()
 {
-
+	m_random = static_cast<float>(rand() % 800);
+	m_posRandom = rand() % 3 - 1;
 }
 
 Ship::~Ship()
@@ -25,20 +26,21 @@ void Ship::unInit()
 
 }
 
-void Ship::update()
+void Ship::update(GameObject* otherGameObject)
 {
 	move();
+	//collide(otherGameObject);
 }
 
 void Ship::draw()
 {
-	sf::Vector2f dim;
-	dim.x = m_dim.V_x;
-	dim.y = m_dim.V_y;
-	m_shape.setSize(dim);
-	m_shape.setPosition(m_pos.V_x, m_pos.V_y);
-	m_shape.setFillColor(sf::Color::Blue);
-	Game::getWindow()->draw(m_shape);
+		sf::Vector2f dim;
+		dim.x = m_dim.V_x;
+		dim.y = m_dim.V_y;
+		m_shape.setSize(dim);
+		m_shape.setPosition(m_pos.V_x, m_pos.V_y);
+		m_shape.setFillColor(sf::Color::Blue);
+		Game::getWindow()->draw(m_shape);
 }
 
 sf::RectangleShape Ship::getShape()

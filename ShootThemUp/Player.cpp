@@ -28,7 +28,7 @@ void Player::unInit()
 
 }
 
-void Player::update()
+void Player::update(GameObject* otherGameObject)
 {
 	/*if (Game::isKey('z') || Game::isKey('Z'))
 	{
@@ -54,6 +54,7 @@ void Player::update()
 	{
 		m_speed = 100.f;
 	}
+	//collide(otherGameObject);
 }
 
 void Player::draw()

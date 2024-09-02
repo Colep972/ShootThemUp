@@ -18,6 +18,7 @@ class Game
 		static bool isKey(int key);
 		static bool isKeyDown(int key);
 		static float getElapsedTime();
+		static float getTotalTime();
 		static bool isKeyNone(int key);
 		static sf::RenderWindow* getWindow();
 	protected:

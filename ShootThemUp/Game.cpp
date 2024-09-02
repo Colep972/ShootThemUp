@@ -113,3 +113,10 @@ float Game::getElapsedTime()
     return g->m_timer.getElapsedTime();
 }
 
+float Game::getTotalTime()
+{
+    Game* g = Game::GetGame();
+    return g->m_timer.getTotalTime();
+}
+
+
