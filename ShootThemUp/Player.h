@@ -10,12 +10,14 @@ class Player : public Ship
 		virtual ~Player();
 		void init(Vec2 pos, Vec2 dim, float speed, float acceleration, float minDim,float maxDim);
 		void unInit();
-		void update(GameObject* otherGameObject);
+		void update();
 		void draw();
 		void moveX(int dir);
 		void moveY(int dir);
 		sf::RectangleShape getShape();
+		void shoot();
 	protected:
+		float m_latestTime;
 	
 };
 

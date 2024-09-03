@@ -4,8 +4,8 @@
 
 Ship::Ship()
 {
-	m_random = static_cast<float>(rand() % 800);
 	m_posRandom = rand() % 3 - 1;
+	m_isVisible = true;
 }
 
 Ship::~Ship()
@@ -13,12 +13,13 @@ Ship::~Ship()
 
 }
 
-void Ship::init(Vec2 pos, Vec2 dim, float speed, float acceleration)
+void Ship::init(Vec2 pos, Vec2 dim, float speed, float acceleration, float minDim, float maxDim)
 {
 	m_pos = pos;
 	m_dim = dim;
 	m_speed = speed;
 	m_acceleration = acceleration;
+	m_radius = m_dim.V_x / 2;
 }
 
 void Ship::unInit()
@@ -26,21 +27,14 @@ void Ship::unInit()
 
 }
 
-void Ship::update(GameObject* otherGameObject)
+void Ship::update()
 {
 	move();
-	//collide(otherGameObject);
 }
 
 void Ship::draw()
 {
-		sf::Vector2f dim;
-		dim.x = m_dim.V_x;
-		dim.y = m_dim.V_y;
-		m_shape.setSize(dim);
-		m_shape.setPosition(m_pos.V_x, m_pos.V_y);
-		m_shape.setFillColor(sf::Color::Blue);
-		Game::getWindow()->draw(m_shape);
+	
 }
 
 sf::RectangleShape Ship::getShape()
@@ -50,12 +44,12 @@ sf::RectangleShape Ship::getShape()
 
 void Ship::move()
 {
-	m_pos.V_x += m_speed * Game::GetGame()->getElapsedTime();
+	m_pos.V_x += m_speed * Game::GetGame()->getElapsedTime()*m_posRandom;
 	if (m_pos.V_x <= m_minDim)
 	{
 		m_pos.V_x = m_maxDim;
 	}
-	if (m_pos.V_x >= m_maxDim)
+	else if (m_pos.V_x >= m_maxDim)
 	{
 		m_pos.V_x = 0;
 	}

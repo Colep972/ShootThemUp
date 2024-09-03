@@ -21,12 +21,12 @@ void Game::initGame()
     posWindow.initVec2(dimWindow.V_x / 2, dimWindow.V_y / 2);
     playerPos.initVec2((dimWindow.V_x / 2)-playerDim.V_x/2, dimWindow.V_y-playerDim.V_y);
     m_window.initWindow("ShootThemUp", posWindow, dimWindow);
-    m_level.initLevel(dimWindow);
+    Level::getLevel()->initLevel(dimWindow);
 }
 
 void Game::update()
 {
-    m_level.update();
+    Level::getLevel()->update();
     m_timer.updateTime();
     m_controller.updateController();
 }
@@ -34,7 +34,7 @@ void Game::update()
 void Game::draw()
 {
     m_window.getWindow()->clear();
-    m_level.draw();
+    Level::getLevel()->draw();
     m_window.getWindow()->display();
 }
 

@@ -25,7 +25,6 @@ class Game
 		Window m_window;
 		Timer m_timer;
 		Controller m_controller;
-		Level m_level;
 
 };
 

@@ -31,19 +31,17 @@ bool Vec2::isEqual(Vec2 v)
 	return true;
 }
 
-float Vec2::getDistance(Vec2 otherVec2)
-{
-	return sqrt(pow(otherVec2.V_x - V_x, 2.f) + pow(otherVec2.V_y - V_y, 2.f));
-}
-
-float Vec2::getSquaredDistance(Vec2 otherVec2)
-{
-	return pow(otherVec2.V_x - V_x, 2.f) + pow(otherVec2.V_y - V_y, 2.f);
-}
-
 bool operator==(Vec2 v1, Vec2 v2)
 {
 	return v1.isEqual(v2);
 }
+
+Vec2 Vec2::add(Vec2 v)
+{
+	Vec2 tmp;
+	tmp.initVec2(v.V_x + V_x, v.V_y + V_y);
+	return tmp;
+}
+
 
 
