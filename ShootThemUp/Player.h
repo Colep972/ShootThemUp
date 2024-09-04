@@ -17,7 +17,7 @@ class Player : public Ship
 		sf::RectangleShape getShape();
 		void shoot();
 	protected:
-		float m_latestTime;
+		
 	
 };
 

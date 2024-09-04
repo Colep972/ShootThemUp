@@ -46,9 +46,19 @@ bool Window::isOpen()
 	return false;
 }
 
-sf::RenderWindow* Window::getWindow()
+void Window::draw(sf::Shape* shape)
+{
+	m_window->draw(*shape);
+}
+
+sf::RenderWindow* Window::getRenderWindow()
 {
 	return m_window;
+}
+
+Window* Window::getWindow()
+{
+	return this;
 }
 
 Vec2 Window::getPos()
@@ -59,6 +69,39 @@ Vec2 Window::getPos()
 Vec2 Window::getDim()
 {
 	return m_windowDim;
+}
+
+void Window::clear()
+{
+	m_window->clear();
+}
+
+void Window::display()
+{
+	m_window->display();
+}
+
+bool Window::updateEvent()
+{
+	sf::Event event;
+	while (m_window->pollEvent(event))
+	{
+		switch (event.type)
+		{
+		case sf::Event::Closed:
+			m_window->close();
+			return true;
+			break;
+		case sf::Event::KeyPressed:
+			if (event.key.scancode == sf::Keyboard::Scan::Escape)
+			{
+				m_window->close();
+				return true;
+			}
+			break;
+		}
+	}
+	return false;
 }
 
 

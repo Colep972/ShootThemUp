@@ -24,18 +24,20 @@ void Game::initGame()
     Level::getLevel()->initLevel(dimWindow);
 }
 
-void Game::update()
+bool Game::update()
 {
-    Level::getLevel()->update();
-    m_timer.updateTime();
+    if (m_timer.updateTime() == false)
+        return false;
     m_controller.updateController();
+    Level::getLevel()->update();
+    return true;
 }
 
 void Game::draw()
 {
-    m_window.getWindow()->clear();
+    m_window.clear();
     Level::getLevel()->draw();
-    m_window.getWindow()->display();
+    m_window.display();
 }
 
 void Game::run()
@@ -43,30 +45,10 @@ void Game::run()
     initGame();
     while (m_window.isOpen())
     {
-        bool quit = false;
-        sf::Event event;
-        while (m_window.getWindow()->pollEvent(event))
-        {
-            switch(event.type)
-            {
-                case sf::Event::Closed:
-                    m_window.getWindow()->close();
-                    quit = true;
-                    break;
-                case sf::Event::KeyPressed:
-                    if (event.key.scancode == sf::Keyboard::Scan::Escape)
-                    {
-                        m_window.getWindow()->close();
-                        quit = true;
-                    }
-                    break;
-            }
-        }
-        if (quit)
-        {
-            break;
-        }
-        update();
+        if (m_window.updateEvent())
+           break;
+        if (update() == false)
+            continue;
         draw();
     }
     unInitGame();
@@ -101,7 +83,13 @@ bool Game::isKeyNone(int key)
     return g->m_controller.isKeyNone(key);
 }
 
-sf::RenderWindow* Game::getWindow()
+sf::RenderWindow* Game::getRenderWindow()
+{
+    Game* g = Game::GetGame();
+    return g->m_window.getRenderWindow();
+}
+
+Window* Game::getWindow()
 {
     Game* g = Game::GetGame();
     return g->m_window.getWindow();

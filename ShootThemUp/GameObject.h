@@ -1,5 +1,13 @@
 #pragma once
 #include "Vec2.h"
+
+enum BULLET
+{
+	NONE,
+	PLAYER,
+	ENNEMY
+};
+
 class GameObject
 {
 	public:
@@ -12,8 +20,9 @@ class GameObject
 		virtual Vec2 getDim();
 		virtual Vec2 getPos();
 		float getRadius();
-		static bool isColliding(GameObject* g1, GameObject* g2);
+		bool isColliding(GameObject* g);
 		void setVisibility(bool visible);
+		void setDirection(int direction);
 		bool getVisibility();
 		int getGroupTag();
 
@@ -27,5 +36,6 @@ class GameObject
 		float m_radius;
 		bool m_isVisible;
 		int m_groupTag;
+		int m_dir;
 };
 

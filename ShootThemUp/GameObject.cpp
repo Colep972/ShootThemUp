@@ -4,7 +4,8 @@
 GameObject::GameObject()
 {
 	m_isVisible = true;
-	m_groupTag = 0;
+	m_groupTag = BULLET::NONE;
+	m_dir = 1;
 }
 
 GameObject::~GameObject()
@@ -18,7 +19,7 @@ void GameObject::init(Vec2 pos, Vec2 dim, float speed, float acceleration)
 	m_dim = dim;
 	m_speed = speed;
 	m_acceleration = acceleration;
-	m_radius = m_dim.V_x / 2;
+	m_radius = (m_dim.V_x / 2) + (m_dim.V_y / 2);
 }
 
 void GameObject::unInit()
@@ -51,18 +52,22 @@ float GameObject::getRadius()
 	return m_radius;
 }
 
-bool GameObject::isColliding(GameObject* g1, GameObject* g2)
+bool GameObject::isColliding(GameObject* g)
 {
-	Vec2 tmpCenter1;
-	float dx = (g2->getPos().V_x + g2->getDim().V_x / 2) - (g1->getPos().V_x + g1->getDim().V_x / 2);
-	float dy = (g2->getPos().V_y + g2->getDim().V_y / 2) - (g1->getPos().V_y + g1->getDim().V_y / 2);
+	float dx = (g->getPos().V_x + g->getDim().V_x / 2) - (getPos().V_x + getDim().V_x / 2);
+	float dy = (g->getPos().V_y + g->getDim().V_y / 2) - (getPos().V_y + getDim().V_y / 2);
 	float distance = sqrt(dx * dx + dy * dy);
-	return distance <= g1->getRadius() + g2->getRadius();
+	return distance <= getRadius() + g->getRadius();
 }
 
 void GameObject::setVisibility(bool visible)
 {
 	m_isVisible = visible;
+}
+
+void GameObject::setDirection(int direction)
+{
+	m_dir = direction;
 }
 
 bool GameObject::getVisibility()

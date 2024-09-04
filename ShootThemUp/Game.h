@@ -10,7 +10,7 @@ class Game
 		Game();
 		~Game();
 		void initGame();
-		void update();
+		bool update();
 		void draw();
 		void run();
 		void unInitGame();
@@ -20,7 +20,8 @@ class Game
 		static float getElapsedTime();
 		static float getTotalTime();
 		static bool isKeyNone(int key);
-		static sf::RenderWindow* getWindow();
+		static sf::RenderWindow* getRenderWindow();
+		static Window* getWindow();
 	protected:
 		Window m_window;
 		Timer m_timer;

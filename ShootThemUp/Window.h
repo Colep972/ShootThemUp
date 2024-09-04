@@ -10,8 +10,13 @@ class Window
 		virtual ~Window();
 		void initWindow(std::string title, Vec2 pos, Vec2 dim);
 		void unInit();
+		void clear();
+		void display();
+		bool updateEvent();
 		bool isOpen();
-		sf::RenderWindow* getWindow();
+		void draw(sf::Shape* shape);
+		sf::RenderWindow* getRenderWindow();
+		Window* getWindow();
 		Vec2 getPos();
 		Vec2 getDim();
 	protected:

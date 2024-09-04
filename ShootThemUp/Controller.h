@@ -1,17 +1,16 @@
 #pragma once
 #include <Windows.h>
 
-enum Keystate
-{
-	NONE,
-	PUSHED,
-	DOWN,
-	UP
-};
-
 class Controller
 {
 	public:
+		enum Keystate
+		{
+			NONE,
+			PUSHED,
+			DOWN,
+			UP
+		};
 		Controller();
 		~Controller();
 		void updateController();

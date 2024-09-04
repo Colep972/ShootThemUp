@@ -17,6 +17,7 @@ class Ship : public GameObject
 	protected:
 		sf::RectangleShape m_shape;
 		int m_posRandom;
+		float m_latestTime;
 		
 };
 

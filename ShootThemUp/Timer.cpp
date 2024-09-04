@@ -1,11 +1,11 @@
 #include "Timer.h"
-#include <Windows.h>
 
 Timer::Timer()
 {
-	m_currentTime = 0.0f;
-	m_elapsedTime = 0.0f;
-	m_totalTime = 0.0f;
+	m_currentTime = 0.f;
+	m_elapsedTime = 0.f;
+	m_totalTime = 0.f;
+	m_systemElapsedTime = 0.f;
 }
 
 Timer::~Timer()
@@ -23,8 +23,13 @@ bool Timer::updateTime()
 	DWORD time = timeGetTime();
 	DWORD elapsedTime = time - m_currentTime;
 	m_currentTime = time;
-	m_elapsedTime = elapsedTime / 1000.0f;
+	m_systemElapsedTime += elapsedTime;
+	if (m_systemElapsedTime < 16)
+		return false;
+
+	m_elapsedTime = m_systemElapsedTime / 1000.0f;
 	m_totalTime += m_elapsedTime;
+	m_systemElapsedTime = 0;
 	return true;
 }
 

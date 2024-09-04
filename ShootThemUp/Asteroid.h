@@ -4,7 +4,7 @@ class Asteroid
 	public:
 		Asteroid();
 		~Asteroid();
-		void initAsteroid();
+		void init();
 	protected:
 };
 

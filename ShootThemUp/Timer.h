@@ -1,4 +1,5 @@
 #pragma once
+#include <Windows.h>
 class Timer
 {
 	public:
@@ -9,6 +10,7 @@ class Timer
 		float getElapsedTime();
 		float getTotalTime();
 	protected:
+		DWORD m_systemElapsedTime;
 		float m_elapsedTime;
 		float m_currentTime;
 		float m_totalTime;

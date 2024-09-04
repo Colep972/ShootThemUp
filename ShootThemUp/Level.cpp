@@ -20,19 +20,19 @@ void Level::initLevel(Vec2 dimWindow)
 	Vec2 dimPlayer;
 	dimPlayer.initVec2(250, 25);
 	posPlayer.initVec2((dimWindow.V_x / 2) - dimPlayer.V_x / 2, dimWindow.V_y - dimPlayer.V_y);
-	Level::spawnEntity<Player>(posPlayer, dimPlayer, 100.f, 50.f, 0.f, dimWindow.V_x - dimPlayer.V_x);
+	Level::spawnEntity<Player>(posPlayer, dimPlayer, 200.f, 50.f, 0.f, dimWindow.V_x - dimPlayer.V_x);
 }
 
 void Level::update()
 {
 	srand(timeGetTime());
-	if ((Game::GetGame()->getTotalTime() - m_latestTime) > 3.0f)
+	if ((Game::GetGame()->getTotalTime() - m_latestTime) > 2.f)
 	{
 		Vec2 posEnnemy;
 		Vec2 dimEnnemy;
 		dimEnnemy.initVec2(50, 15);
 		posEnnemy.initVec2(static_cast<float>(rand() % 800), (static_cast<float>(rand() % 500))/3);
-		Level::spawnEntity<Ennemy>(posEnnemy, dimEnnemy, 50.f, 10.f, 0.f, Game::GetGame()->getWindow()->getSize().x);
+		Level::spawnEntity<Ennemy>(posEnnemy, dimEnnemy, 50.f, 10.f, 0.f, Game::GetGame()->getWindow()->getDim().V_x);
 		m_latestTime = Game::getTotalTime();
 	}
 	updateCollision();
@@ -46,9 +46,25 @@ void Level::updateCollision()
 {
 	for (auto it_i = m_tabGameObject.begin(); it_i != m_tabGameObject.end(); it_i++)
 	{
+		if((*it_i)->getVisibility() == false)
+			continue;
+
 		for (auto it_j = m_tabGameObject.begin(); it_j != m_tabGameObject.end(); it_j++)
 		{
-			if ((*it_i)->getGroupTag() != (*it_j)->getGroupTag() && GameObject::isColliding((*it_i), (*it_j)))
+			if ((*it_j)->getVisibility() == false)
+				continue;
+			if ((*it_i)->getGroupTag() == (*it_j)->getGroupTag())
+			{
+				if ((*it_i)->isColliding((*it_j)))
+				{
+					(*it_i)->setDirection(-1);
+					(*it_j)->setDirection(-1);
+				}
+				continue;
+			}
+			
+
+			if ((*it_i)->isColliding((*it_j)))
 			{
 				(*it_i)->setVisibility(false);
 				(*it_j)->setVisibility(false);
