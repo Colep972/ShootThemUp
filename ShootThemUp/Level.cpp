@@ -1,5 +1,6 @@
 #include "Level.h"
 #include "Player.h"
+#include "Texture.h"
 #include "Ennemy.h"
 #include "Game.h"
 #include <algorithm>
@@ -7,6 +8,7 @@
 Level::Level()
 {
 	m_latestTime = 0.f;
+	m_player = nullptr;
 }
 
 Level::~Level()
@@ -20,7 +22,12 @@ void Level::initLevel(Vec2 dimWindow)
 	Vec2 dimPlayer;
 	dimPlayer.initVec2(100, 25);
 	posPlayer.initVec2((dimWindow.V_x / 2) - dimPlayer.V_x / 2, dimWindow.V_y - dimPlayer.V_y);
-	Level::spawnEntity<Player>(posPlayer, dimPlayer, 200.f, 50.f, 0.f, dimWindow.V_x - dimPlayer.V_x);
+	m_player = Level::spawnEntity<Player>(posPlayer, dimPlayer, 200.f, 50.f, 0.f, dimWindow.V_x - dimPlayer.V_x);
+	m_texture->init("C:\\Users\\Guestlyon\\Documents\\ShootThemUp\\ShootThemUp\\data\\player.png");
+	m_texture->init("C:\\Users\\Guestlyon\\Documents\\ShootThemUp\\ShootThemUp\\data\\ennemy.png");
+	m_texture->init("C:\\Users\\Guestlyon\\Documents\\ShootThemUp\\ShootThemUp\\data\\player_shoot.png");
+	m_texture->init("C:\\Users\\Guestlyon\\Documents\\ShootThemUp\\ShootThemUp\\data\\ennemy_shoot.png");
+	Sprite sprite;
 }
 
 void Level::update()
@@ -61,6 +68,7 @@ void Level::updateCollision()
 			{
 				(*it_i)->setVisibility(false);
 				(*it_j)->setVisibility(false);
+				break;
 			}
 		}
 	}
@@ -84,4 +92,13 @@ std::list<GameObject*>& Level::getList()
 {
 	Level* l = Level::getLevel();
 	return l->m_tabGameObject;
+}
+
+bool Level::isPlayerDead()
+{
+	if (m_player->getVisibility())
+	{
+		return false;
+	}
+	return true;
 }

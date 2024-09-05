@@ -45,12 +45,12 @@ void Game::run()
     initGame();
     while (m_window.isOpen())
     {
+        if (Level::getLevel()->isPlayerDead() == true)
+            exit(0);
         if (m_window.updateEvent())
            break;
         if (update() == false)
-            continue;
-        /*if (Game::GetGame()->getPlayer()->getVisibility() == false)
-            m_window.clear();*/
+           continue;
         draw();
     }
     unInitGame();

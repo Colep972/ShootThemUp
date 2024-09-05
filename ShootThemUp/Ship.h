@@ -1,7 +1,5 @@
 #pragma once
-#include "Window.h"
 #include "GameObject.h"
-#include "Projectile.h"
 
 class Ship : public GameObject
 {
@@ -13,9 +11,8 @@ class Ship : public GameObject
 		void update();
 		void draw();
 		void move();
-		sf::RectangleShape getShape();
 	protected:
-		sf::RectangleShape m_shape;
+		sf::Sprite* m_spriteSFML;
 		int m_posRandom;
 		float m_latestTime;
 		

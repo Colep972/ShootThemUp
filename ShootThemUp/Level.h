@@ -2,6 +2,8 @@
 #include "list"
 #include "Vec2.h"
 
+class Player;
+class Texture;
 class GameObject;
 class Level
 {
@@ -14,12 +16,14 @@ class Level
 		void draw();
 		static Level* getLevel();
 		static std::list<GameObject*>& getList();
+		bool isPlayerDead();
 		template<class T>
 		static T* spawnEntity(Vec2 pos, Vec2 dim, float speed, float acceleration, float minDim, float maxDim);
 	protected:
 		std::list<GameObject*> m_tabGameObject;
 		float m_latestTime;
-
+		Player* m_player;
+		Texture* m_texture;
 };
 
 template<class T> T* Level::spawnEntity(Vec2 pos, Vec2 dim, float speed, float acceleration, float minDim, float maxDim)

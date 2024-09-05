@@ -13,7 +13,6 @@ class Ennemy : public Ship
 		void draw();
 		void move();
 		void shoot();
-		sf::RectangleShape getShape();
 	protected:
 		float m_shootDelay;
 		float m_shootDeltaTime;

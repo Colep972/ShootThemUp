@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "Sprite.h"
 #include <iostream>
 
 GameObject::GameObject()
@@ -6,6 +7,7 @@ GameObject::GameObject()
 	m_isVisible = true;
 	m_groupTag = BULLET::NONE;
 	m_dir = 1;
+	m_sprite = nullptr;
 }
 
 GameObject::~GameObject()
@@ -78,6 +80,11 @@ bool GameObject::getVisibility()
 int GameObject::getGroupTag()
 {
 	return m_groupTag;
+}
+
+void GameObject::setSprite(Sprite* sprite)
+{
+	m_sprite = sprite;
 }
 
 

@@ -16,9 +16,9 @@ class Player : public Ship
 		void moveX(int dir);
 		void moveY(int dir);
 		Player* getPlayer();
-		sf::RectangleShape getShape();
 		void shoot();
 	protected:
+		
 		
 	
 };

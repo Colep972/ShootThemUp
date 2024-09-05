@@ -1,4 +1,6 @@
 #include "Sprite.h"
+#include "Windows.h"
+#include "Texture.h"
 
 Sprite::Sprite()
 {
@@ -10,25 +12,15 @@ Sprite::~Sprite()
 
 }
 
-void Sprite::init(Vec2 pos, Vec2 dim, std::string path)
+sf::Sprite* Sprite::init(Vec2 pos, Vec2 dim,Texture* texture)
 {
+    m_texture = texture;
     m_sprite = new sf::Sprite;
     m_pos = pos;
     m_dim = dim;
-    loadSprite(path);
-}
-
-bool Sprite::loadSprite(std::string path)
-{
-    sf::Texture texture;
-    if (texture.loadFromFile(path) == false)
-        return false;
-    m_sprite->setTexture(texture);
+    m_sprite->setTexture(*texture->getTexture());
+    m_sprite->setOrigin(texture->getTexture()->getSize().x / 2, texture->getTexture()->getSize().y / 2);
     m_sprite->setPosition(m_pos.V_x, m_pos.V_y);
-    return true;
-}
-
-sf::Sprite Sprite::getSprite()
-{
-    return *(m_sprite);
+    m_sprite->scale(0.2f, 0.2f);
+    return m_sprite;
 }

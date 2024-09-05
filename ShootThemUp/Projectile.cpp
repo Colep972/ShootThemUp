@@ -20,16 +20,24 @@ void Projectile::init(Vec2 pos, Vec2 dim, float speed, float acceleration,float 
 	m_radius = m_dim.V_x * 0.5f;
 	m_pos = pos;
 	m_radius = (m_dim.V_x / 2) + (m_dim.V_y / 2);
+
+	m_spriteSFML = m_sprite.init(m_pos, m_dim, "C:\\Users\\Guestlyon\\Documents\\ShootThemUp\\ShootThemUp\\data\\player_shoot.png");
 }
 
 void Projectile::draw()
 {
 	if (m_isVisible) 
 	{
-		m_shape.setSize(sf::Vector2f(m_dim.V_x, m_dim.V_y));
-		m_shape.setPosition(sf::Vector2f(m_pos.V_x, m_pos.V_y));
-		m_shape.setFillColor(sf::Color::Yellow);
-		Game::getWindow()->draw(&m_shape);
+		/*if (m_groupTag == PLAYER)
+		{
+			Game::getWindow()->getRenderWindow()->draw(*m_spriteSFMLPlayer);
+			m_spriteSFMLPlayer->setPosition(m_pos.V_x, m_pos.V_y);
+		}
+		if (m_groupTag == ENNEMY)
+		{ 
+			Game::getWindow()->getRenderWindow()->draw(*m_spriteSFMLEnnemy);
+			m_spriteSFMLEnnemy->setPosition(m_pos.V_x, m_pos.V_y);
+		}*/
 	}
 }
 
