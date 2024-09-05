@@ -1,5 +1,6 @@
 #pragma once
 #include "Vec2.h"
+#include "Sprite.h"
 
 enum BULLET
 {
@@ -27,6 +28,7 @@ class GameObject
 		int getGroupTag();
 
 	protected:
+		Sprite m_sprite;
 		Vec2 m_pos;
 		Vec2 m_dim;
 		float m_speed;
@@ -37,5 +39,6 @@ class GameObject
 		bool m_isVisible;
 		int m_groupTag;
 		int m_dir;
+
 };
 

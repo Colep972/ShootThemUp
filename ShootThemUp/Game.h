@@ -1,8 +1,8 @@
 #pragma once
 #include "Window.h"
 #include "Timer.h"
-#include "Controller.h"
 #include "Level.h"
+#include "Player.h"
 
 class Game
 {
@@ -19,6 +19,7 @@ class Game
 		static bool isKeyDown(int key);
 		static float getElapsedTime();
 		static float getTotalTime();
+		static Player* getPlayer();
 		static bool isKeyNone(int key);
 		static sf::RenderWindow* getRenderWindow();
 		static Window* getWindow();
@@ -26,6 +27,6 @@ class Game
 		Window m_window;
 		Timer m_timer;
 		Controller m_controller;
-
+		Player m_player;
 };
 

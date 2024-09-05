@@ -9,6 +9,7 @@ Player::Player()
 	m_groupTag = BULLET::PLAYER;
 	m_latestTime = 0.f;
 	m_dir = 1;
+	m_isVisible = true;
 }
 
 Player::~Player()
@@ -88,6 +89,11 @@ void Player::moveX(int dir)
 void Player::moveY(int dir)
 {
 		m_pos.V_y += m_speed * Game::GetGame()->getElapsedTime()*dir;
+}
+
+Player* Player::getPlayer()
+{
+	return this;
 }
 
 sf::RectangleShape Player::getShape()

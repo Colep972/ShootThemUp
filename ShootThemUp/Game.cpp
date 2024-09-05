@@ -49,6 +49,8 @@ void Game::run()
            break;
         if (update() == false)
             continue;
+        /*if (Game::GetGame()->getPlayer()->getVisibility() == false)
+            m_window.clear();*/
         draw();
     }
     unInitGame();
@@ -105,6 +107,12 @@ float Game::getTotalTime()
 {
     Game* g = Game::GetGame();
     return g->m_timer.getTotalTime();
+}
+
+Player* Game::getPlayer()
+{
+    Game* g = Game::GetGame();
+    return g->m_player.getPlayer();
 }
 
 

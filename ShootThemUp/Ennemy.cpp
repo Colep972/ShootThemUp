@@ -25,7 +25,6 @@ void Ennemy::init(Vec2 pos, Vec2 dim, float speed, float acceleration, float min
 	m_minDim = minDim;
 	m_maxDim = maxDim;
 	m_radius = (m_dim.V_x / 2)+ (m_dim.V_y / 2);
-	m_shootDelay = static_cast<float>(rand() % 10 + 1);
 }
 
 void Ennemy::unInit()
@@ -35,6 +34,7 @@ void Ennemy::unInit()
 
 bool Ennemy::updateShoot()
 {
+	m_shootDelay = static_cast<float>(rand() % 10 + 1);
 	m_shootDeltaTime += Game::GetGame()->getElapsedTime();
 	if (m_isVisible == false)
 		return false;

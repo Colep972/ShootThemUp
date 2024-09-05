@@ -18,7 +18,7 @@ void Level::initLevel(Vec2 dimWindow)
 {
 	Vec2 posPlayer;
 	Vec2 dimPlayer;
-	dimPlayer.initVec2(250, 25);
+	dimPlayer.initVec2(100, 25);
 	posPlayer.initVec2((dimWindow.V_x / 2) - dimPlayer.V_x / 2, dimWindow.V_y - dimPlayer.V_y);
 	Level::spawnEntity<Player>(posPlayer, dimPlayer, 200.f, 50.f, 0.f, dimWindow.V_x - dimPlayer.V_x);
 }
@@ -54,14 +54,7 @@ void Level::updateCollision()
 			if ((*it_j)->getVisibility() == false)
 				continue;
 			if ((*it_i)->getGroupTag() == (*it_j)->getGroupTag())
-			{
-				if ((*it_i)->isColliding((*it_j)))
-				{
-					(*it_i)->setDirection(-1);
-					(*it_j)->setDirection(-1);
-				}
 				continue;
-			}
 			
 
 			if ((*it_i)->isColliding((*it_j)))

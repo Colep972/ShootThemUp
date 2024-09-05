@@ -3,6 +3,7 @@
 #include "Vec2.h"
 #include "Controller.h"
 
+
 class Player : public Ship
 {
 	public:
@@ -14,6 +15,7 @@ class Player : public Ship
 		void draw();
 		void moveX(int dir);
 		void moveY(int dir);
+		Player* getPlayer();
 		sf::RectangleShape getShape();
 		void shoot();
 	protected:
