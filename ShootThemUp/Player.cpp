@@ -1,7 +1,10 @@
 #include "Sprite.h"
 #include "Player.h"
 #include "Game.h"
+#include "Level.h"
 #include "Projectile.h"
+#include "Window.h"
+
 
 
 

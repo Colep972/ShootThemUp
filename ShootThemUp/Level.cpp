@@ -1,6 +1,7 @@
 #include "Sprite.h"
 #include "Level.h"
 #include "Game.h"
+#include "Window.h"
 #include <algorithm>
 #include "Player.h"
 #include "Ennemy.h"

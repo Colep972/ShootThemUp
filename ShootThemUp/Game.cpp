@@ -1,8 +1,8 @@
 #include "Game.h"
 #include "Window.h"
 #include "Level.h"
-#include "Player.h"
 #include "Timer.h"
+#include "Player.h"
 
 Game::Game()
 {

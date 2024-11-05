@@ -3,6 +3,7 @@
 #include "Projectile.h"
 #include "Game.h"
 #include "Level.h"
+#include "Window.h"
 
 Ennemy::Ennemy()
 {
