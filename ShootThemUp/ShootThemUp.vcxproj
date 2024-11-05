@@ -104,12 +104,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Guestlyon\Documents\SFML-2.6.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\joaki\Documents\SFML-2.6.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Guestlyon\Documents\SFML-2.6.1\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\joaki\Documents\SFML-2.6.1\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -146,8 +146,10 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="ShootThemUp.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Vec2.h" />
     <ClInclude Include="Weapon.h" />
@@ -165,7 +167,9 @@
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="ShootThemUp.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Vec2.cpp" />
     <ClCompile Include="Weapon.cpp" />

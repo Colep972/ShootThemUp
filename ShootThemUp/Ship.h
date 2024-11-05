@@ -12,7 +12,6 @@ class Ship : public GameObject
 		void draw();
 		void move();
 	protected:
-		sf::Sprite* m_spriteSFML;
 		int m_posRandom;
 		float m_latestTime;
 		

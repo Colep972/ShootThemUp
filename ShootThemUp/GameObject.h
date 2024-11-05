@@ -1,5 +1,6 @@
 #pragma once
 #include "Vec2.h"
+#include "Sprite.h"
 
 
 enum BULLET
@@ -9,7 +10,6 @@ enum BULLET
 	ENNEMY
 };
 
-class Sprite;
 class GameObject
 {
 	public:
@@ -27,10 +27,10 @@ class GameObject
 		void setDirection(int direction);
 		bool getVisibility();
 		int getGroupTag();
-		void setSprite(Sprite* sprite);
+		void setSprite(sf::Sprite sprite);
 
 	protected:
-		Sprite* m_sprite;
+		sf::Sprite m_sprite;
 		Vec2 m_pos;
 		Vec2 m_dim;
 		float m_speed;

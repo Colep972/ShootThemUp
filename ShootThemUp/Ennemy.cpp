@@ -1,3 +1,4 @@
+#include "Sprite.h"
 #include "Ennemy.h"
 #include "Projectile.h"
 #include "Game.h"
@@ -27,7 +28,6 @@ void Ennemy::init(Vec2 pos, Vec2 dim, float speed, float acceleration, float min
 	m_minDim = minDim;
 	m_maxDim = maxDim;
 	m_radius = (m_dim.V_x / 2)+ (m_dim.V_y / 2);
-	m_spriteSFML = m_sprite.init(m_pos, m_dim, "C:/Users/Guestlyon/Documents/ShootThemUp/ShootThemUp/data/ennemy.png");
 }
 
 void Ennemy::unInit()
@@ -59,8 +59,8 @@ void Ennemy::draw()
 {
 	if (m_isVisible)
 	{
-		Game::getWindow()->getRenderWindow()->draw(*m_spriteSFML);
-		m_spriteSFML->setPosition(m_pos.V_x, m_pos.V_y);
+		Game::getWindow()->getRenderWindow()->draw(m_sprite);
+		m_sprite.setPosition(m_pos.V_x, m_pos.V_y);
 	}
 }
 

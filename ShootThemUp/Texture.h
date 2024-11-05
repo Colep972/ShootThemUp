@@ -5,11 +5,11 @@ class Texture
 	public:
 		Texture();
 		virtual ~Texture();
-		bool init(std::string path);
+		sf::Texture* init(std::string path);
 		sf::Texture* getTexture();
 
 	protected:
-		sf::Texture m_texture;
+		sf::Texture* m_texture;
 
 
 };

@@ -72,6 +72,12 @@
     <ClInclude Include="Projectile.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShootThemUp.cpp">
@@ -120,6 +126,12 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Projectile.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

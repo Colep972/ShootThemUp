@@ -1,7 +1,8 @@
-#include <SFML/System/Vector2.hpp> 
+#include "Sprite.h"
 #include "Player.h"
 #include "Game.h"
 #include "Projectile.h"
+
 
 
 Player::Player()
@@ -57,8 +58,8 @@ void Player::draw()
 {
 	if (m_isVisible)
 	{
-		Game::getWindow()->getRenderWindow()->draw(*m_spriteSFML);
-		m_spriteSFML->setPosition(m_pos.V_x, m_pos.V_y);
+		Game::getWindow()->getRenderWindow()->draw(m_sprite);
+		m_sprite.setPosition(m_pos.V_x, m_pos.V_y);
 	}
 }
 

@@ -2,7 +2,7 @@
 
 Texture::Texture()
 {
-
+    m_texture = nullptr;
 }
 
 Texture::~Texture()
@@ -10,15 +10,16 @@ Texture::~Texture()
 
 }
 
-bool Texture::init(std::string path)
+sf::Texture* Texture::init(std::string path)
 {
-    if (m_texture.loadFromFile(path) == false)
+    if (m_texture->loadFromFile(path) == false)
     {
-        return false;
+        return nullptr;
     }
+    return m_texture;
 }
 
 sf::Texture* Texture::getTexture()
 {
-    return &m_texture;
+    return m_texture;
 }

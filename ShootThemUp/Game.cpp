@@ -18,7 +18,7 @@ void Game::initGame()
     Vec2 playerDim;
     dimWindow.initVec2(800, 600);
     playerDim.initVec2(250, 50);
-    posWindow.initVec2(dimWindow.V_x / 2, dimWindow.V_y / 2);
+    posWindow.initVec2((1920 / 2),(1080/3));
     playerPos.initVec2((dimWindow.V_x / 2)-playerDim.V_x/2, dimWindow.V_y-playerDim.V_y);
     m_window.initWindow("ShootThemUp", posWindow, dimWindow);
     Level::getLevel()->initLevel(dimWindow);
