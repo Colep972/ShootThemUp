@@ -1,7 +1,8 @@
-#include "Sprite.h"
 #include "Ennemy.h"
+#include "Sprite.h"
 #include "Projectile.h"
 #include "Game.h"
+#include "Level.h"
 
 Ennemy::Ennemy()
 {
@@ -59,7 +60,7 @@ void Ennemy::draw()
 {
 	if (m_isVisible)
 	{
-		Game::getWindow()->getRenderWindow()->draw(m_sprite);
+		Game::GetGame()->getRenderWindow()->draw(m_sprite);
 		m_sprite.setPosition(m_pos.V_x, m_pos.V_y);
 	}
 }

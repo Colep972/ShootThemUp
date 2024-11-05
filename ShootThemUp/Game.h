@@ -1,9 +1,10 @@
 #pragma once
-#include "Window.h"
-#include "Timer.h"
-#include "Level.h"
-#include "Player.h"
 
+
+class Window;
+class Player;
+class Timer;
+class Controller;
 class Game
 {
 	public:
@@ -24,9 +25,9 @@ class Game
 		static sf::RenderWindow* getRenderWindow();
 		static Window* getWindow();
 	protected:
-		Window m_window;
-		Timer m_timer;
-		Controller m_controller;
-		Player m_player;
+		Window* m_window;
+		Timer* m_timer;
+		Controller* m_controller;
+		Player* m_player;
 };
 

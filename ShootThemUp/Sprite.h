@@ -1,7 +1,8 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include "Vec2.h"
 #include <iostream>
-#include <SFML/Graphics.hpp>
+
 
 class Texture;
 class Sprite

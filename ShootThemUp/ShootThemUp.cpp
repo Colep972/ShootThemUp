@@ -1,8 +1,9 @@
 // ShootThemUp.cpp : Définit le point d'entrée de l'application.
 //
+#include "ShootThemUp.h"
 #include "Game.h"
 #include "framework.h"
-#include "ShootThemUp.h"
+
 
 
 #define MAX_LOADSTRING 100

@@ -1,5 +1,4 @@
 #include "Projectile.h"
-#include "Projectile.h"
 #include <math.h>  
 #define PI 3.1415
 

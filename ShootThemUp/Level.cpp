@@ -1,10 +1,10 @@
 #include "Sprite.h"
 #include "Level.h"
-#include "Player.h"
-#include "Texture.h"
-#include "Ennemy.h"
 #include "Game.h"
 #include <algorithm>
+#include "Player.h"
+#include "Ennemy.h"
+#include "Texture.h"
 
 Level::Level()
 {
@@ -35,7 +35,7 @@ void Level::initLevel(Vec2 dimWindow)
 
 void Level::update()
 {
-	srand(timeGetTime());
+	//srand(timeGetTime());
 	if ((Game::GetGame()->getTotalTime() - m_latestTime) > 2.f)
 	{
 		Vec2 posEnnemy;
