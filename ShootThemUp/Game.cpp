@@ -49,12 +49,18 @@ void Game::run()
     initGame();
     while (m_window->isOpen())
     {
+<<<<<<< HEAD
         if (Level::getLevel()->isPlayerDead() == true)
             exit(0);
         if (m_window->updateEvent())
+=======
+        if (m_window.updateEvent())
+>>>>>>> parent of 752d0cd (Jour J)
            break;
         if (update() == false)
-           continue;
+            continue;
+        /*if (Game::GetGame()->getPlayer()->getVisibility() == false)
+            m_window.clear();*/
         draw();
     }
     unInitGame();

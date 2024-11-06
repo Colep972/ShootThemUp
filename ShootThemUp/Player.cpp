@@ -30,6 +30,7 @@ void Player::init(Vec2 pos, Vec2 dim, float speed, float acceleration, float min
 	m_maxDim = maxDim;
 	m_minDim = minDim;
 	m_radius = (m_dim.V_x / 2) + (m_dim.V_y / 2);
+
 }
 
 void Player::unInit()
@@ -61,8 +62,18 @@ void Player::draw()
 {
 	if (m_isVisible)
 	{
+<<<<<<< HEAD
 		Game::getWindow()->getRenderWindow()->draw(m_sprite);
 		m_sprite.setPosition(m_pos.V_x, m_pos.V_y);
+=======
+		sf::Vector2f dim;
+		dim.x = m_dim.V_x;
+		dim.y = m_dim.V_y;
+		m_shape.setSize(dim);
+		m_shape.setPosition(m_pos.V_x, m_pos.V_y);
+		m_shape.setFillColor(sf::Color::Red);
+		Game::getWindow()->draw(&m_shape);
+>>>>>>> parent of 752d0cd (Jour J)
 	}
 }
 
@@ -94,10 +105,15 @@ Player* Player::getPlayer()
 	return this;
 }
 
+sf::RectangleShape Player::getShape()
+{
+	return m_shape;
+}
+
 void Player::shoot()
 {
 	Vec2 pos;
-	pos.initVec2(m_pos.V_x, m_pos.V_y);
+	pos.initVec2(m_pos.V_x + (m_dim.V_x / 2), m_pos.V_y);
 	Vec2 dim;
 	dim.initVec2(5.f, 25.f);
 	Projectile* projectile = Level::getLevel()->spawnEntity<Projectile>(pos, dim, 500.f, 50.f, 0.f, Game::GetGame()->getWindow()->getDim().V_x);

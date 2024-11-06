@@ -1,7 +1,10 @@
 #pragma once
 #include "Vec2.h"
 #include "Sprite.h"
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 752d0cd (Jour J)
 
 enum BULLET
 {
@@ -27,10 +30,16 @@ class GameObject
 		void setDirection(int direction);
 		bool getVisibility();
 		int getGroupTag();
+<<<<<<< HEAD
 		void setSprite(sf::Sprite sprite);
 
 	protected:
 		sf::Sprite m_sprite;
+=======
+
+	protected:
+		Sprite m_sprite;
+>>>>>>> parent of 752d0cd (Jour J)
 		Vec2 m_pos;
 		Vec2 m_dim;
 		float m_speed;

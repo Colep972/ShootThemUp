@@ -1,9 +1,12 @@
 #include "Ennemy.h"
+<<<<<<< HEAD
 #include "Sprite.h"
 #include "Projectile.h"
 #include "Game.h"
 #include "Level.h"
 #include "Window.h"
+=======
+>>>>>>> parent of 752d0cd (Jour J)
 
 Ennemy::Ennemy()
 {
@@ -47,7 +50,6 @@ bool Ennemy::updateShoot()
 		return false;
 	shoot();
 	m_shootDeltaTime = 0.f;
-	return true;
 }
 
 void Ennemy::update()
@@ -61,11 +63,25 @@ void Ennemy::draw()
 {
 	if (m_isVisible)
 	{
+<<<<<<< HEAD
 		Game::GetGame()->getRenderWindow()->draw(m_sprite);
 		m_sprite.setPosition(m_pos.V_x, m_pos.V_y);
+=======
+		sf::Vector2f dim;
+		dim.x = m_dim.V_x;
+		dim.y = m_dim.V_y;
+		m_shape.setSize(dim);
+		m_shape.setPosition(m_pos.V_x, m_pos.V_y);
+		m_shape.setFillColor(sf::Color::Blue);
+		Game::getWindow()->draw(&m_shape);
+>>>>>>> parent of 752d0cd (Jour J)
 	}
 }
 
+sf::RectangleShape Ennemy::getShape()
+{
+	return m_shape;
+}
 
 void Ennemy::move()
 {
@@ -83,7 +99,7 @@ void Ennemy::move()
 void Ennemy::shoot()
 {
 	Vec2 pos;
-	pos.initVec2(m_pos.V_x, m_pos.V_y);
+	pos.initVec2(m_pos.V_x + (m_dim.V_x / 2), m_pos.V_y);
 	Vec2 dim;
 	dim.initVec2(5.f, 25.f);
 	Projectile* projectile = Level::getLevel()->spawnEntity<Projectile>(pos, dim, 500.f, 50.f, 0.f, Game::GetGame()->getWindow()->getDim().V_x);

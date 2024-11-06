@@ -37,6 +37,11 @@ void Ship::draw()
 	
 }
 
+sf::RectangleShape Ship::getShape()
+{
+	return m_shape;
+}
+
 void Ship::move()
 {
 	m_pos.V_x += m_speed * Game::GetGame()->getElapsedTime()*m_posRandom;

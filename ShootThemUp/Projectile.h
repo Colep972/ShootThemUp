@@ -14,6 +14,6 @@ public:
 private:
 	float m_speed;
 	float m_acceleration;
-	sf::Sprite* m_spriteSFML;
+	sf::RectangleShape m_shape;
 };
 

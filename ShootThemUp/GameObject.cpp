@@ -1,5 +1,4 @@
 #include "GameObject.h"
-#include "Sprite.h"
 #include <iostream>
 
 GameObject::GameObject()
@@ -81,9 +80,12 @@ int GameObject::getGroupTag()
 	return m_groupTag;
 }
 
+<<<<<<< HEAD
 void GameObject::setSprite(sf::Sprite sprite)
 {
 	m_sprite = sprite;
 }
 
+=======
+>>>>>>> parent of 752d0cd (Jour J)
 

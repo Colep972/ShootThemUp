@@ -1,5 +1,10 @@
 #include "Sprite.h"
 #include "Level.h"
+<<<<<<< HEAD
+=======
+#include "Player.h"
+#include "Ennemy.h"
+>>>>>>> parent of 752d0cd (Jour J)
 #include "Game.h"
 #include "Window.h"
 #include <algorithm>
@@ -10,8 +15,11 @@
 Level::Level()
 {
 	m_latestTime = 0.f;
+<<<<<<< HEAD
 	m_player = nullptr;
 	m_texture = nullptr;
+=======
+>>>>>>> parent of 752d0cd (Jour J)
 }
 
 Level::~Level()
@@ -29,9 +37,13 @@ void Level::initLevel(Vec2 dimWindow)
 	Vec2 dimPlayer;
 	dimPlayer.initVec2(100, 25);
 	posPlayer.initVec2((dimWindow.V_x / 2) - dimPlayer.V_x / 2, dimWindow.V_y - dimPlayer.V_y);
+<<<<<<< HEAD
 	m_player = Level::spawnEntity<Player>(posPlayer, dimPlayer, 200.f, 50.f, 0.f, dimWindow.V_x - dimPlayer.V_x);
 	Sprite* sprite = new Sprite;
 	m_player->setSprite(sprite->init(posPlayer, dimPlayer, "../../data/player.png"));
+=======
+	Level::spawnEntity<Player>(posPlayer, dimPlayer, 200.f, 50.f, 0.f, dimWindow.V_x - dimPlayer.V_x);
+>>>>>>> parent of 752d0cd (Jour J)
 }
 
 void Level::update()
@@ -74,8 +86,12 @@ void Level::updateCollision()
 			{
 				(*it_i)->setVisibility(false);
 				(*it_j)->setVisibility(false);
+<<<<<<< HEAD
 				break;
 			}*/
+=======
+			}
+>>>>>>> parent of 752d0cd (Jour J)
 		}
 	}
 }
@@ -98,13 +114,4 @@ std::list<GameObject*>& Level::getList()
 {
 	Level* l = Level::getLevel();
 	return l->m_tabGameObject;
-}
-
-bool Level::isPlayerDead()
-{
-	if (m_player->getVisibility())
-	{
-		return false;
-	}
-	return true;
 }

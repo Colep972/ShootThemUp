@@ -25,16 +25,10 @@ void Projectile::draw()
 {
 	if (m_isVisible) 
 	{
-		/*if (m_groupTag == PLAYER)
-		{
-			Game::getWindow()->getRenderWindow()->draw(*m_spriteSFMLPlayer);
-			m_spriteSFMLPlayer->setPosition(m_pos.V_x, m_pos.V_y);
-		}
-		if (m_groupTag == ENNEMY)
-		{ 
-			Game::getWindow()->getRenderWindow()->draw(*m_spriteSFMLEnnemy);
-			m_spriteSFMLEnnemy->setPosition(m_pos.V_x, m_pos.V_y);
-		}*/
+		m_shape.setSize(sf::Vector2f(m_dim.V_x, m_dim.V_y));
+		m_shape.setPosition(sf::Vector2f(m_pos.V_x, m_pos.V_y));
+		m_shape.setFillColor(sf::Color::Yellow);
+		Game::getWindow()->draw(&m_shape);
 	}
 }
 
